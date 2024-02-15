@@ -10,11 +10,11 @@ import pyperclip
 import whisper
 
 model = whisper.load_model('medium')
-result = model.transcribe('C:/Users/gsgzj/Desktop/edu/딥러닝/project01/resource/4591ac3941517087.m4a')
+result = model.transcribe('audio-path')
 voice_str = str(result['text'])
-voice_str = voice_str + "hyper detailed masterpiece, dynamic realistic digital art, awesome quality, person, male demon hunter  Charming conjuration shaped like Whirlpool of bluish-violet cryptic chaos and weather manipulation, DonMM4g1c  <lora:DonMM4g1c-v1.2rb2:0.8>"
+voice_str = voice_str + "your-prompt"
 
-f = open("C:/Users/gsgzj/Desktop/edu/딥러닝/project01/text/test.txt", "w", encoding = 'utf-8')
+f = open("txt-path", "w", encoding = 'utf-8')
 f.write(voice_str)
 f.close()
 
@@ -93,7 +93,7 @@ def joonyeong_trans(string):
         
         
     
-f = open("C:/Users/gsgzj/Desktop/edu/딥러닝/project01/text/test.txt", "r", encoding = 'utf-8')
+f = open("txt-path", "r", encoding = 'utf-8')
 
 str_list = []
 i = 0
@@ -105,7 +105,7 @@ for string in f.readlines():
 
 i = 0
     
-f = open("C:/Users/gsgzj/Desktop/edu/딥러닝/project01/text/test_result.txt", "w", encoding = 'utf-8')
+f = open("txt-path", "w", encoding = 'utf-8')
 
 i = 0
 for string in to_trans:
@@ -116,31 +116,14 @@ f.close()
 
 if i != 0: 
     #webbrowser.open("http://127.0.0.1:7860")
-    path = "C:/Users/gsgzj/.wdm/drivers/chromedriver/win64/114.0.5735.90/chromedriver.exe"
+    path = "chromedriver.path"
     driver = webdriver.Chrome()
     driver.set_window_size(1920, 1080)
     url = "http://127.0.0.1:7860"
     driver.get(url)
-    '''driver.find_element_by_xpath('/html/body/gradio-app/div/div/div[1]/div/div/div[2]/div[2]/div/div[1]/div[1]/div[1]/div[1]/div[2]/label/textarea').click()
-    driver.find_element_by_xpath('/html/body/gradio-app/div/div/div[1]/div/div/div[2]/div[2]/div/div[1]/div[1]/div[1]/div[1]/div[2]/label/textarea').click()
-    driver.find_element_by_xpath('/html/body/gradio-app/div/div/div[1]/div/div/div[2]/div[2]/div/div[1]/div[1]/div[1]/div[1]/div[2]/label/textarea').send_keys("key")
-    '''
-    '''
-    driver.find_element_by_xpath('/html/body/gradio-app/div/div/div[1]/div/div/div[2]/div[2]/div/div[1]/div[1]/div[1]/div[1]/div[2]/label/textarea').click()
-    driver.find_element_by_xpath('/html/body/gradio-app/div/div/div[1]/div/div/div[2]/div[2]/div/div[1]/div[1]/div[1]/div[1]/div[2]/label/textarea').send_keys("key")
-    '''
-    
-#<textarea data-testid="textbox" class="scroll-hide svelte-1f354aw" dir="ltr" placeholder="Prompt (press Ctrl+Enter or Alt+Enter to generate)" rows="3" style="overflow-y: scroll; height: 84px;"></textarea>
-##txt2img_prompt > label > textarea
-#/html/body/gradio-app/div/div/div[1]/div/div/div[2]/div[2]/div/div[1]/div[1]/div[1]/div[1]/div[2]/label/textarea
-
-
 
         
         
-    
-#kor_string = "저는 커서 대통령이 될거예요"    
-#first_step = joonyeong_trans(kor_string)
 driver.maximize_window()
 print(pyautogui.size())
 fore = pyautogui.getActiveWindow()
@@ -164,14 +147,10 @@ pyautogui.moveTo(138, 344)
     
 pyautogui.click()
 
-'''while(True):
-    time.sleep(2)
-    print(pyautogui.position())
-'''
 
 string_copy = ""
 
-f = open("C:/Users/gsgzj/Desktop/edu/딥러닝/project01/text/test_result.txt", 'r', encoding = 'utf-8')
+f = open("txt-path", 'r', encoding = 'utf-8')
 string_copy = f.readlines()
 string_copy = str(string_copy)
 string_copy = string_copy.replace('[', "")
@@ -184,22 +163,12 @@ pyperclip.copy(string_copy) # 클립보드에 텍스트를 복사합니다.
 
 pyautogui.hotkey('ctrl', 'v') # 붙여넣기 (hotkey)
 
-'''while(True):
-    time.sleep(2)
-    print(pyautogui.position())
-'''
 
 time.sleep(2)
 pyautogui.moveTo(1588, 374) 
 
 pyautogui.moveTo(1588, 374)
 pyautogui.click()
-
-'''while(True):
-    time.sleep(2)
-    print(pyautogui.position())
-'''
-
 pyautogui.sleep(10)
 
 for i in range(0, 150):
